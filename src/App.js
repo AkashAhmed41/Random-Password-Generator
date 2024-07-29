@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useRef } from "react";
 
 import "./App.css";
 
@@ -7,6 +7,8 @@ function App() {
   const [includeNumbers, setIncludeNumbers] = useState(false);
   const [includeSpecialChar, setincludeSpecialChar] = useState(false);
   const [password, setPassword] = useState("");
+
+  const passwordRef = useRef(null);
 
   const passwordGenerator = useCallback(() => {
     let pass = "";
@@ -22,6 +24,11 @@ function App() {
     setPassword(pass);
   }, [length, includeNumbers, includeSpecialChar]);
 
+  const copyPasswordOnClipboard = () => {
+    passwordRef.current.select();
+    window.navigator.clipboard.writeText(password);
+  };
+
   useEffect(() => {
     passwordGenerator();
   }, [length, includeNumbers, includeSpecialChar, passwordGenerator]);
@@ -30,8 +37,8 @@ function App() {
     <div className="container">
       <h1>Generate Your Random Password</h1>
       <div className="showcase-box">
-        <input type="text" value={password} readOnly></input>
-        <button>Copy</button>
+        <input type="text" value={password} readOnly ref={passwordRef}></input>
+        <button onClick={copyPasswordOnClipboard}>Copy</button>
       </div>
       <div className="input-container">
         <div>
@@ -67,6 +74,12 @@ function App() {
           ></input>
           <label htmlFor="specialChar">Special Characters</label>
         </div>
+      </div>
+      <div className="footer">
+        By default it generates an 8 character long password for you with a
+        combination of the English capital and small letters. You are then
+        allowed to change the password length, include numerical values and
+        special characters to generate a strong password.
       </div>
     </div>
   );
