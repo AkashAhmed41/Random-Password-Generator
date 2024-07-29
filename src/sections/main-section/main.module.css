@@ -1,0 +1,79 @@
+h1 {
+  color: orange;
+  margin: 1rem 0 2rem 0;
+}
+
+.showcase-box {
+  background: #272424;
+  max-width: 90%;
+  margin: auto;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  border-radius: 8px;
+}
+
+.showcase-box input {
+  flex: 9;
+  padding: 1rem;
+  font-size: large;
+  min-width: 100px;
+  border: none;
+  border-radius: 5px;
+  background-color: #d9dae3;
+}
+
+.showcase-box input:focus {
+  outline: none;
+  border: 2px solid rgb(46, 46, 253);
+}
+
+.showcase-box button {
+  flex: 1;
+  padding: 1rem;
+  font-size: large;
+  font-weight: bold;
+  min-width: 80px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(46, 46, 253);
+  color: white;
+  cursor: pointer;
+}
+
+button:hover,
+label:hover,
+input:not([type="text"]):hover {
+  opacity: 0.8;
+  transition: 0.5s;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: large;
+  margin: auto;
+}
+
+input:not([type="text"]),
+label {
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+}
