@@ -3,41 +3,61 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./main.module.css";
 
 function MainSection() {
-  const [length, setLength] = useState(8);
-  const [includeNumbers, setIncludeNumbers] = useState(false);
-  const [includeSpecialChar, setincludeSpecialChar] = useState(false);
-  const [password, setPassword] = useState("");
+  const [state, setState] = useState({
+    length: 8,
+    includeNumbers: false,
+    includeSpecialChar: false,
+    password: "",
+  });
 
   const passwordRef = useRef(null);
 
-  const passwordGenerator = useCallback(() => {
+  const generatePassword = useCallback(() => {
     let pass = "";
     let str = "QAZWSXEDCRFVTGBYHNUJMIKOLPqazwsxedcrfvtgbyhnujmikolp";
 
-    if (includeNumbers) str += "0123456789";
-    if (includeSpecialChar) str += "+=/?~!@#$%^&*{}[]()_";
+    if (state.includeNumbers) str += "0123456789";
+    if (state.includeSpecialChar) str += "+=/?~!@#$%^&*{}[]()_";
 
-    for (let i = 0; i < length; i++) {
+    for (let i = 0; i < state.length; i++) {
       let index = Math.floor(Math.random() * str.length) + 1;
       pass += str.charAt(index);
     }
-    setPassword(pass);
-  }, [length, includeNumbers, includeSpecialChar]);
+    setState((prevState) => ({ ...prevState, password: pass }));
+  }, [state.length, state.includeNumbers, state.includeSpecialChar]);
 
   const copyPasswordOnClipboard = () => {
     passwordRef.current.select();
-    window.navigator.clipboard.writeText(password);
+    window.navigator.clipboard.writeText(state.password);
   };
 
   useEffect(() => {
-    passwordGenerator();
-  }, [length, includeNumbers, includeSpecialChar, passwordGenerator]);
+    generatePassword();
+  }, [
+    state.length,
+    state.includeNumbers,
+    state.includeSpecialChar,
+    generatePassword,
+  ]);
+
+  const handleChange = (e) => {
+    const { id, type, value, checked } = e.target;
+    setState((prevState) => ({
+      ...prevState,
+      [id]: type === "checkbox" ? checked : parseInt(value, 10),
+    }));
+  };
 
   return (
     <>
       <h1>Generate Your Random Password</h1>
       <div className={styles["showcase-box"]}>
-        <input type="text" value={password} readOnly ref={passwordRef}></input>
+        <input
+          type="text"
+          value={state.password}
+          readOnly
+          ref={passwordRef}
+        ></input>
         <button onClick={copyPasswordOnClipboard}>Copy</button>
       </div>
       <div className={styles["input-container"]}>
@@ -47,32 +67,28 @@ function MainSection() {
             min={5}
             max={100}
             id="length"
-            value={length}
-            onChange={(e) => setLength(e.target.value)}
+            value={state.length}
+            onChange={handleChange}
           ></input>
-          <label htmlFor="length">Length: {length}</label>
+          <label htmlFor="length">Length: {state.length}</label>
         </div>
         <div className={styles["inputs"]}>
           <input
             type="checkbox"
-            defaultChecked={includeNumbers}
-            id="includeNum"
-            onChange={() => {
-              setIncludeNumbers((prev) => !prev);
-            }}
+            defaultChecked={state.includeNumbers}
+            id="includeNumbers"
+            onChange={handleChange}
           ></input>
-          <label htmlFor="includeNum">Include Numbers</label>
+          <label htmlFor="includeNumbers">Include Numbers</label>
         </div>
         <div className={styles["inputs"]}>
           <input
             type="checkbox"
-            defaultChecked={includeSpecialChar}
-            id="specialChar"
-            onChange={() => {
-              setincludeSpecialChar((prev) => !prev);
-            }}
+            defaultChecked={state.includeSpecialChar}
+            id="includeSpecialChar"
+            onChange={handleChange}
           ></input>
-          <label htmlFor="specialChar">Special Characters</label>
+          <label htmlFor="includeSpecialChar">Special Characters</label>
         </div>
       </div>
     </>
