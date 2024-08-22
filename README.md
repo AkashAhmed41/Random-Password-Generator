@@ -1,74 +1,28 @@
 # Random-Password-Generator
 
-This repository is going to contain a fun project that I'll create while learning to ReactJs.
+Random-Password-Generator is a beginner friendly web development project for learning ***React***. This project shows how React Hooks work, in a simple way and how we can make use of those. Besides, the web application is fully responsive for any screen size. I have used ***JavaScript*** and ***Raw CSS*** throughout the whole project.
 
-# Getting Started with Create React App
+## How The Project Works
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project can be used to create strong passwords by anyone effortlessly. By default, it generates an 8 character long password for the user on opening, with a combination of the English capital and small letters. The user is then allowed to change the password length, include numerical values and special characters to generate a strong or stronger password with the provided options.
 
-## Available Scripts
+A live working demo of the project can be found here: ***[Random-Password-Provider](https://random-password-provider.netlify.app/)***
 
-In the project directory, you can run:
+## Working with the Source Code
 
-### `npm start`
+To work with the project and it's source code, first you need [Node.js](https://nodejs.org/en/download) to be installed in your machine. Then create a directory where you want to clone the project and run the following command:
+  ```
+  git clone https://github.com/AkashAhmed41/Random-Password-Generator.git
+  ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+After that open the project folder with [Visual Studio Code](https://code.visualstudio.com/download). Then in a terminal, run the following commands one after another:
+```
+npm install
+npm start
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+These will install all the dependencies and the app will run in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser if the browser doesn't open automatically.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
